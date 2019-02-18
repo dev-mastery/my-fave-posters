@@ -1,51 +1,6 @@
 import React, { useState } from 'react'
 
 export default function PosterSearch () {
-  const [disableSearch, setDisableSearch] = useState(true)
-  const [movieName, setMovieName] = useState('')
-  const [msg, setMsg] = useState(
-    `Enter at least 3 letters from the movie's title.`
-  )
-  const [posters, setPosters] = useState([])
-
-  function handleInput ({ target: { value } }) {
-    setDisableSearch(value.length < 3)
-    setMovieName(value)
-  }
-
-  function handleClick (e) {
-    e.preventDefault()
-    setMsg('Searching...')
-    setDisableSearch(true)
-    setPosters([])
-    fetch(
-      `${process.env.REACT_APP_API_URL}?s=${encodeURIComponent(
-        movieName
-      )}&apikey=${process.env.REACT_APP_API_KEY}`
-    )
-      .then(resp => resp.json())
-      .then(results => {
-        if (results.Response === 'True') {
-          setMsg(
-            `Now showing the first ${results.Search.length} results of ${
-              results.totalResults
-            }`
-          )
-          setPosters(results.Search)
-          setDisableSearch(false)
-        } else {
-          if (results.Error === 'Movie not found!') {
-            setMsg(`Sorry, we couldn't find that one. Please try again.`)
-          } else {
-            setMsg(results.Error)
-          }
-        }
-      })
-      .catch(e => {
-        setMsg('Something went wrong. Please try again later.')
-      })
-  }
-
   return (
     <>
       <section className='PosterSearch'>
