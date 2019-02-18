@@ -1,4 +1,5 @@
-import PosterSearch from '../../src/PosterSearch'
+import PosterSearch from '../../src/PosterSearch' // eslint-disable-line no-unused-vars
+
 import dummyPosters from '../fixtures/omdbapi/posters.json'
 import apiErrorResponse from '../fixtures/omdbapi/error-response.json'
 import dotenv from 'dotenv'
@@ -10,6 +11,7 @@ describe('Poster Search', () => {
     })
   })
   beforeEach(async () => {
+    const p = PosterSearch.Component
     await jestPuppeteer.resetPage()
     const url =
       process.env.NODE_ENV === 'build'

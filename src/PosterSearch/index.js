@@ -34,7 +34,7 @@ export default function PosterSearch () {
           setPosters(results.Search)
           setDisableSearch(false)
         } else {
-          setMsg(results.Error)
+          // setMsg(results.Error)
         }
       })
   }

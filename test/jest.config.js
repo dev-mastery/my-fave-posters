@@ -1,6 +1,6 @@
 require('@babel/polyfill')
 module.exports = {
   preset: 'jest-puppeteer',
-  testRegex: './*\\.(spec|test)\\.js$',
+  testRegex: './*\\.spec\\.js$',
   setupTestFrameworkScriptFile: 'expect-puppeteer'
 }
