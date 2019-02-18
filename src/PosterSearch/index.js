@@ -34,8 +34,15 @@ export default function PosterSearch () {
           setPosters(results.Search)
           setDisableSearch(false)
         } else {
-          // setMsg(results.Error)
+          if (results.Error === 'Movie not found!') {
+            setMsg(`Sorry, we couldn't find that one. Please try again.`)
+          } else {
+            setMsg(results.Error)
+          }
         }
+      })
+      .catch(e => {
+        setMsg('Something went wrong. Please try again later.')
       })
   }
 
@@ -76,7 +83,13 @@ export default function PosterSearch () {
           {posters.map(movie => (
             <img
               key={movie.Title}
-              src={movie.Poster}
+              src={
+                movie.Poster === 'N/A'
+                  ? `https://via.placeholder.com/300x468?text=${encodeURIComponent(
+                    movie.Title
+                  )}`
+                  : movie.Poster
+              }
               alt={movie.Title}
               title={movie.Title}
             />

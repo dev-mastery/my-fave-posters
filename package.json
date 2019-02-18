@@ -13,8 +13,8 @@
     "build": "react-scripts build",
     "postbuild": "NODE_ENV=build npm run test:ui",
     "test": "react-scripts test --env=jsdom",
-    "test:ui": "jest -c test/jest.config.js",
-    "test:ui:watch": "npm run test:ui -- --watchAll",
+    "test:ui": "jest -c jest.config.js",
+    "test:ui:watch": "npm run test:ui -- --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

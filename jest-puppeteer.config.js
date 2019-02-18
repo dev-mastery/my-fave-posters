@@ -3,8 +3,8 @@ module.exports = {
     headless: false
   },
   server: {
-    command: `npm start`,
-    port: 3000,
+    command: `serve -s build`,
+    port: 5000,
     launchTimeout: 10000,
     debug: true
   }
