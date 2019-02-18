@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function PosterSearch () {
   return (
@@ -18,38 +18,16 @@ export default function PosterSearch () {
               type='search'
               id='movie-name'
               name='movie-name'
-              value={movieName}
-              onChange={handleInput}
               placeholder='enter the name of a movie'
             />
-            <button
-              id='search-button'
-              className='searchButton'
-              disabled={disableSearch}
-              onClick={handleClick}
-            >
+            <button id='search-button' className='searchButton'>
               Search
             </button>
             <br />
           </p>
-          <p id='msg'>{msg}</p>
+          <p id='msg' />
         </main>
-        <section id='poster-grid' className='PosterGrid'>
-          {posters.map(movie => (
-            <img
-              key={movie.Title}
-              src={
-                movie.Poster === 'N/A'
-                  ? `https://via.placeholder.com/300x468?text=${encodeURIComponent(
-                    movie.Title
-                  )}`
-                  : movie.Poster
-              }
-              alt={movie.Title}
-              title={movie.Title}
-            />
-          ))}
-        </section>
+        <section id='poster-grid' className='PosterGrid' />
       </section>
     </>
   )
