@@ -1,4 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My Favourite Posters
+This is the source code for Dev Mastery's TDD Frontend Development tutorial.
+Watch the companion video at:
+
+## Getting started
+To grab the boilerplate code we started with at the beginning of the video just clone the master branch. 
+```
+git clone https://github.com/dev-mastery/my-fave-posters.git
+```
+If you're interested in a version of the code that's closer to where we ended up in the first video, clone the `make-it-work` branch.
+```
+git clone -b make-it-work https://github.com/dev-mastery/my-fave-posters.git
+```
+
+Once you've cloned the app, jump into the app's root directory and install the dependencies with npm.
+```
+cd my-fave-posters
+npm install
+```
+Then you'll want to add a `.env` file to the root of our project with the following structure:
+```
+REACT_APP_API_URL=https://www.omdbapi.com/
+REACT_APP_API_KEY=XXXX
+DEV_LOCALHOST=http://localhost:3000
+PROD_LOCALHOST=http://localhost:5000
+```
 
 ## Available Scripts
 
@@ -12,10 +37,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm run test:ui:watch`
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
