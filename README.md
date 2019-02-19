@@ -1,6 +1,6 @@
 # My Favourite Posters
 This is the source code for Dev Mastery's TDD Frontend Development tutorial.
-Watch the companion video at:
+Watch the companion video at:https://youtu.be/Hw522TDxMZk
 
 ## Getting started
 To grab the boilerplate code we started with at the beginning of the video just clone the master branch. 
