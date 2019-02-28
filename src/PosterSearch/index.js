@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
+import findMovies from './find-movies'
 
 export default function PosterSearch () {
+  const minMovieTitleLength = 3
   const [disableSearch, setDisableSearch] = useState(true)
   const [movieName, setMovieName] = useState('')
   const [msg, setMsg] = useState(
-    `Enter at least 3 letters from the movie's title.`
+    `Enter at least ${minMovieTitleLength} letters from the movie's title.`
   )
   const [posters, setPosters] = useState([])
 
-  function handleInput ({ target: { value } }) {
-    setDisableSearch(value.length < 3)
+  function handleInput ({ target: { value, minLength } }) {
+    setDisableSearch(value.length < minLength)
     setMovieName(value)
   }
 
@@ -18,27 +20,21 @@ export default function PosterSearch () {
     setMsg('Searching...')
     setDisableSearch(true)
     setPosters([])
-    fetch(
-      `${process.env.REACT_APP_API_URL}?s=${encodeURIComponent(
-        movieName
-      )}&apikey=${process.env.REACT_APP_API_KEY}`
-    )
-      .then(resp => resp.json())
+    findMovies({ movieTitle: movieName })
       .then(results => {
-        if (results.Response === 'True') {
+        console.log(results)
+        if (results.error) {
+          setMsg(results.error)
+        } else if (results.movies.length === 0) {
+          setMsg(`Sorry, we couldn't find that one. Please try again.`)
+        } else {
           setMsg(
-            `Now showing the first ${results.Search.length} results of ${
-              results.totalResults
+            `Now showing the first ${results.movies.length} results of ${
+              results.total
             }`
           )
-          setPosters(results.Search)
+          setPosters(results.movies)
           setDisableSearch(false)
-        } else {
-          if (results.Error === 'Movie not found!') {
-            setMsg(`Sorry, we couldn't find that one. Please try again.`)
-          } else {
-            setMsg(results.Error)
-          }
         }
       })
       .catch(e => {
@@ -65,6 +61,7 @@ export default function PosterSearch () {
               name='movie-name'
               value={movieName}
               onChange={handleInput}
+              minLength={minMovieTitleLength}
               placeholder='enter the name of a movie'
             />
             <button
@@ -82,16 +79,16 @@ export default function PosterSearch () {
         <section id='poster-grid' className='PosterGrid'>
           {posters.map(movie => (
             <img
-              key={movie.Title}
+              key={movie.title}
               src={
-                movie.Poster === 'N/A'
+                movie.poster == null
                   ? `https://via.placeholder.com/300x468?text=${encodeURIComponent(
-                    movie.Title
+                    movie.title
                   )}`
-                  : movie.Poster
+                  : movie.poster
               }
-              alt={movie.Title}
-              title={movie.Title}
+              alt={movie.title}
+              title={movie.title}
             />
           ))}
         </section>

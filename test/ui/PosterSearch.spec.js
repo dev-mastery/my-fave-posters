@@ -27,7 +27,6 @@ describe('Poster Search', () => {
       false
     )
   })
-
   it("tells me when we're searching", async done => {
     expect.assertions(3)
     await page.setRequestInterception(true)
@@ -48,7 +47,6 @@ describe('Poster Search', () => {
     await expect(page).toFill('#movie-name', 'star')
     await expect(page).toClick('#search-button')
   })
-
   it('tells me when there are no results', async done => {
     await page.setRequestInterception(true)
     page.on('request', async req => {
