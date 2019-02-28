@@ -1,6 +1,12 @@
 # My Favourite Posters
 This is the source code for Dev Mastery's TDD Frontend Development tutorial.
-Watch the companion video at: https://youtu.be/Hw522TDxMZk
+Watch the companion videos on YouTube.
+
+### How to use TDD to build a web app that queries a REST API with Jest and Puppeteer
+[![How to use TDD to build a web app that queries a REST API with Jest and Puppeteer](https://img.youtube.com/vi/Hw522TDxMZk/0.jpg)](https://www.youtube.com/watch?v=Hw522TDxMZk)
+
+### Using TDD to refactor a web front that consumes a REST service.
+[![Using TDD to refactor a web front that consumes a REST service.](https://img.youtube.com/vi/IOCcqIKJyFk/0.jpg)](https://youtu.be/IOCcqIKJyFk)
 
 ## Getting started
 To grab the boilerplate code we started with at the beginning of the video just clone the master branch. 
@@ -10,6 +16,10 @@ git clone https://github.com/dev-mastery/my-fave-posters.git
 If you're interested in a version of the code that's closer to where we ended up in the first video, clone the `make-it-work` branch.
 ```
 git clone -b make-it-work https://github.com/dev-mastery/my-fave-posters.git
+```
+If you're interested in a version of the code that's closer to where we ended up in the follow-up video, clone the `make-it-better` branch.
+```
+git clone -b make-it-better https://github.com/dev-mastery/my-fave-posters.git
 ```
 
 Once you've cloned the app, jump into the app's root directory and install the dependencies with npm.
