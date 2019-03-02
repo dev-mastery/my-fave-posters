@@ -27,7 +27,10 @@ Once you've cloned the app, jump into the app's root directory and install the d
 cd my-fave-posters
 npm install
 ```
-Then you'll want to add a `.env` file to the root of our project with the following structure:
+
+You'll need to grab a free API key from the OMDBAPI website at http://www.omdbapi.com/apikey.aspx
+
+Then you'll need to add a `.env` file to the root of our project with the following structure (make sure to replace XXXX with your API key from omdapi.com):
 ```
 REACT_APP_API_URL=https://www.omdbapi.com/
 REACT_APP_API_KEY=XXXX
@@ -71,6 +74,17 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Troubleshooting
+If you run into problems with puppeteer check out their troubleshooting guide at: https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
+
+### Configuration
+
+#### Create React App Config Docs
+https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+#### Jest-Puppeteer Config Docs
+https://github.com/smooth-code/jest-puppeteer#configure-puppeteer
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -88,10 +102,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/an
 ### Making a Progressive Web App
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
 ### Deployment
 
