@@ -35,6 +35,7 @@
     "@babel/polyfill": "^7.2.5",
     "expect-puppeteer": "^4.0.0",
     "jest-puppeteer": "^4.0.0",
-    "puppeteer": "^1.12.2"
+    "puppeteer": "^1.12.2",
+    "serve": "^11.0.2"
   }
 }
