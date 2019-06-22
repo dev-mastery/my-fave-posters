@@ -3,7 +3,7 @@ module.exports = {
     headless: false
   },
   server: {
-    command: `serve -s build`,
+    command: `npx serve -s build`,
     port: 5000,
     launchTimeout: 10000,
     debug: true
